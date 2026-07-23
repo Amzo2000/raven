@@ -53,4 +53,4 @@ export interface Talent {
   avatarUrl?: string;
 }
 
-export type ViewState = 'home' | 'startups' | 'investors' | 'talents';
+export type ViewState = 'startups' | 'investors' | 'talents';

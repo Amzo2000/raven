@@ -11,11 +11,10 @@ import TalentsView from './components/views/TalentsView';
 import { ViewState } from './types';
 
 export default function App() {
-  const [currentView, setCurrentView] = useState<ViewState>('home');
+  const [currentView, setCurrentView] = useState<ViewState>('startups');
 
   const renderView = () => {
     switch (currentView) {
-      case 'home':
       case 'startups':
         return <StartupsView />;
       case 'investors':

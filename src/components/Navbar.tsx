@@ -15,7 +15,7 @@ export default function Navbar({ currentView, onViewChange }: NavbarProps) {
     <nav className="bg-white sticky top-0 z-50 flex flex-col">
       <div className="w-full px-4 sm:px-6 h-16 flex items-center justify-between border-b border-gray-100">
         {/* Left: Logo */}
-        <div className={`flex items-center cursor-pointer sm:min-w-[200px] ${isMobileSearchOpen ? 'hidden sm:flex' : ''}`} onClick={() => onViewChange('home')}>
+        <div className={`flex items-center cursor-pointer sm:min-w-[200px] ${isMobileSearchOpen ? 'hidden sm:flex' : ''}`} onClick={() => onViewChange('startups')}>
           <div className="w-8 h-8 flex items-center justify-center mr-3">
             <img src={logoUrl} alt="Raven Logo" className="w-full h-full object-contain" />
           </div>
@@ -71,10 +71,6 @@ export default function Navbar({ currentView, onViewChange }: NavbarProps) {
       
       {/* Mobile Bottom Navigation - Keeping this for mobile UX */}
       <div className="sm:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 flex justify-around p-2 z-50 pb-safe">
-        <button onClick={() => onViewChange('home')} className={`flex flex-col items-center justify-center w-full py-2 ${currentView === 'home' ? 'text-indigo-600' : 'text-gray-500'}`}>
-          <Home className="w-5 h-5" />
-          <span className="text-[10px] mt-1 font-medium">Accueil</span>
-        </button>
         <button onClick={() => onViewChange('startups')} className={`flex flex-col items-center justify-center w-full py-2 ${currentView === 'startups' ? 'text-indigo-600' : 'text-gray-500'}`}>
           <Building2 className="w-5 h-5" />
           <span className="text-[10px] mt-1 font-medium">Startups</span>
@@ -82,6 +78,10 @@ export default function Navbar({ currentView, onViewChange }: NavbarProps) {
         <button onClick={() => onViewChange('investors')} className={`flex flex-col items-center justify-center w-full py-2 ${currentView === 'investors' ? 'text-indigo-600' : 'text-gray-500'}`}>
           <Briefcase className="w-5 h-5" />
           <span className="text-[10px] mt-1 font-medium">Investisseurs</span>
+        </button>
+        <button onClick={() => onViewChange('talents')} className={`flex flex-col items-center justify-center w-full py-2 ${currentView === 'talents' ? 'text-indigo-600' : 'text-gray-500'}`}>
+          <Users className="w-5 h-5" />
+          <span className="text-[10px] mt-1 font-medium">Talents</span>
         </button>
       </div>
     </nav>
