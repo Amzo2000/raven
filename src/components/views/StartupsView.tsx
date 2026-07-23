@@ -52,9 +52,9 @@ function StartupSection({ title, items, onSelect }: { title: string, items: Star
   };
 
   return (
-    <div className="mb-12 relative group/section">
-      <div className="flex items-center justify-between mb-4">
-        <h2 className="font-display text-xl sm:text-2xl font-bold text-gray-900 cursor-pointer hover:text-indigo-600 transition-colors">
+    <div className="mb-6 relative group/section">
+      <div className="flex items-center justify-between mb-2">
+        <h2 className="font-display text-lg sm:text-xl font-bold text-gray-900 cursor-pointer hover:text-indigo-600 transition-colors">
           {title}
         </h2>
         <div className="flex items-center space-x-2">
@@ -75,17 +75,17 @@ function StartupSection({ title, items, onSelect }: { title: string, items: Star
         <div 
           ref={scrollRef}
           onScroll={checkScroll}
-          className="flex overflow-x-auto pb-6 px-4 sm:mx-0 sm:px-0 gap-4 sm:gap-6 snap-x hide-scrollbar scroll-smooth after:content-[''] after:w-px after:pr-4 after:sm:pr-0"
+          className="flex overflow-x-auto pb-6 px-4 sm:mx-0 sm:px-0 gap-3 sm:gap-4 snap-x hide-scrollbar scroll-smooth after:content-[''] after:w-px after:pr-4 after:sm:pr-0"
         >
           {items.map((startup) => (
-            <div key={startup.id} className="w-[240px] sm:w-[280px] flex-shrink-0 snap-start">
+            <div key={startup.id} className="w-[110px] sm:w-[140px] flex-shrink-0 snap-start">
               <StartupCard startup={startup} onClick={() => onSelect(startup)} />
             </div>
           ))}
           
-          <div className="w-[240px] sm:w-[280px] flex-shrink-0 snap-start flex items-stretch">
-            <div className="w-full h-full border border-gray-200 rounded-sm bg-gray-50/50 flex flex-col items-center justify-center p-6 cursor-pointer hover:border-gray-300 transition-colors group">
-              <div className="w-12 h-12 rounded-sm bg-gray-100 text-gray-600 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+          <div className="w-[110px] sm:w-[140px] flex-shrink-0 snap-start flex items-stretch">
+            <div className="w-full h-full border border-gray-200 rounded-none bg-gray-50/50 flex flex-col items-center justify-center p-3 cursor-pointer hover:border-gray-300 transition-colors group">
+              <div className="w-10 h-10 rounded-none bg-gray-100 text-gray-600 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
                 <ArrowRight className="w-6 h-6" />
               </div>
               <span className="font-medium text-gray-900">Voir plus</span>
@@ -155,16 +155,9 @@ export default function StartupsView() {
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4 }}
-      className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12"
+      className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6"
     >
-      <div className="mb-6 sm:mb-8">
-        <h1 className="font-display text-2xl sm:text-3xl font-bold text-gray-900 mb-2">Découvrez les startups</h1>
-        <p className="text-gray-600 max-w-2xl text-sm sm:text-base">
-          Explorez les projets innovants à la recherche de financements et de talents pour accélérer leur croissance.
-        </p>
-      </div>
-
-      <div className="relative mb-8">
+      <div className="relative mb-4">
         {canScrollLeft && (
           <button 
             onClick={() => scroll('left')}
@@ -179,19 +172,16 @@ export default function StartupsView() {
           onScroll={checkScroll}
           className="flex space-x-3 overflow-x-auto hide-scrollbar scroll-smooth whitespace-nowrap py-1 -mx-4 px-4 sm:mx-0 sm:px-2 after:content-[''] after:w-px after:pr-4 after:sm:pr-0"
         >
-          {CATEGORIES.map(({ name, icon: Icon }) => (
+          {CATEGORIES.map(({ name }) => (
             <button
               key={name}
               onClick={() => setActiveCategory(name)}
-              className={`flex items-center p-1.5 pr-4 rounded-sm text-sm transition-colors border ${
+              className={`flex items-center px-4 py-2 rounded-sm text-sm transition-colors border ${
                 activeCategory === name 
                   ? 'bg-indigo-50 border-indigo-200 text-indigo-700' 
                   : 'bg-white border-gray-200 text-gray-700 hover:bg-gray-50 hover:border-gray-300'
               }`}
             >
-              <div className="w-7 h-7 rounded-sm bg-gray-100 flex items-center justify-center mr-3 text-gray-600">
-                <Icon className="w-4 h-4" />
-              </div>
               <span className="font-medium">{name}</span>
             </button>
           ))}
@@ -215,11 +205,11 @@ export default function StartupsView() {
             <StartupSection title="Les plus populaires actuellement" items={popularStartups} onSelect={setSelectedStartup} />
           </div>
 
-          <hr className="my-4 sm:my-6 border-gray-200" />
+          <hr className="my-3 border-gray-200" />
 
-          <div className="mb-12">
-            <h2 className="font-display text-xl sm:text-2xl font-bold text-gray-900 mb-6">Explorez plus de projets</h2>
-            <div className="grid grid-cols-[repeat(auto-fill,minmax(280px,1fr))] gap-4 sm:gap-6">
+          <div className="mb-6">
+            <h2 className="font-display text-lg sm:text-xl font-bold text-gray-900 mb-3">Explorez plus de projets</h2>
+            <div className="grid grid-cols-3 sm:grid-cols-[repeat(auto-fill,minmax(120px,1fr))] gap-2 sm:gap-4">
               {startups.map((startup) => (
                 <StartupCard key={startup.id} startup={startup} onClick={() => setSelectedStartup(startup)} />
               ))}
@@ -227,15 +217,15 @@ export default function StartupsView() {
           </div>
         </>
       ) : (
-        <div className="mb-12">
-          <div className="mb-6">
-            <h2 className="font-display text-xl sm:text-2xl font-bold text-gray-900">
+        <div className="mb-6">
+          <div className="mb-3">
+            <h2 className="font-display text-lg sm:text-xl font-bold text-gray-900">
               Projets dans la catégorie {activeCategory}
             </h2>
           </div>
           
           {filteredStartups.length > 0 ? (
-            <div className="grid grid-cols-[repeat(auto-fill,minmax(280px,1fr))] gap-4 sm:gap-6">
+            <div className="grid grid-cols-3 sm:grid-cols-[repeat(auto-fill,minmax(120px,1fr))] gap-2 sm:gap-4">
               {filteredStartups.map((startup) => (
                 <StartupCard key={startup.id} startup={startup} onClick={() => setSelectedStartup(startup)} />
               ))}
