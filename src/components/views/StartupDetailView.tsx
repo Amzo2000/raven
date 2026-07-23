@@ -32,7 +32,7 @@ export default function StartupDetailView({ startup, onBack }: StartupDetailView
           <p className="text-gray-500 mt-1">{startup.metrics?.find(m => m.label === 'Création')?.value || '2023'} · {startup.industry} · {startup.stage || startup.metrics?.find(m => m.label === 'Stade')?.value || 'Amorçage'}</p>
         </div>
         <div className="mt-4 sm:mt-0 flex space-x-3">
-          <button className="px-4 py-2 bg-indigo-50 text-indigo-700 font-medium rounded-full hover:bg-indigo-100 transition-colors">
+          <button className="px-4 py-2 bg-gray-900 text-white font-medium rounded-full hover:bg-gray-800 transition-colors">
             Contacter
           </button>
           <button className="px-4 py-2 bg-gray-100 text-gray-800 font-medium rounded-full hover:bg-gray-200 transition-colors">
@@ -45,34 +45,34 @@ export default function StartupDetailView({ startup, onBack }: StartupDetailView
         <button
           onClick={() => setActiveTab('apercu')}
           className={`pb-4 text-sm font-medium transition-colors relative whitespace-nowrap ${
-            activeTab === 'apercu' ? 'text-indigo-600' : 'text-gray-500 hover:text-gray-900'
+            activeTab === 'apercu' ? 'text-gray-900' : 'text-gray-500 hover:text-gray-900'
           }`}
         >
           Aperçu
           {activeTab === 'apercu' && (
-            <motion.div layoutId="activeTab" className="absolute bottom-0 left-0 right-0 h-0.5 bg-indigo-600" />
+            <motion.div layoutId="activeTab" className="absolute bottom-0 left-0 right-0 h-0.5 bg-gray-900" />
           )}
         </button>
         <button
           onClick={() => setActiveTab('equipe')}
           className={`pb-4 text-sm font-medium transition-colors relative whitespace-nowrap ${
-            activeTab === 'equipe' ? 'text-indigo-600' : 'text-gray-500 hover:text-gray-900'
+            activeTab === 'equipe' ? 'text-gray-900' : 'text-gray-500 hover:text-gray-900'
           }`}
         >
           L'équipe
           {activeTab === 'equipe' && (
-            <motion.div layoutId="activeTab" className="absolute bottom-0 left-0 right-0 h-0.5 bg-indigo-600" />
+            <motion.div layoutId="activeTab" className="absolute bottom-0 left-0 right-0 h-0.5 bg-gray-900" />
           )}
         </button>
         <button
           onClick={() => setActiveTab('investisseurs')}
           className={`pb-4 text-sm font-medium transition-colors relative whitespace-nowrap ${
-            activeTab === 'investisseurs' ? 'text-indigo-600' : 'text-gray-500 hover:text-gray-900'
+            activeTab === 'investisseurs' ? 'text-gray-900' : 'text-gray-500 hover:text-gray-900'
           }`}
         >
           Espace Investisseurs
           {activeTab === 'investisseurs' && (
-            <motion.div layoutId="activeTab" className="absolute bottom-0 left-0 right-0 h-0.5 bg-indigo-600" />
+            <motion.div layoutId="activeTab" className="absolute bottom-0 left-0 right-0 h-0.5 bg-gray-900" />
           )}
         </button>
       </div>
@@ -110,7 +110,7 @@ export default function StartupDetailView({ startup, onBack }: StartupDetailView
               <div>
                 <div className="flex items-center justify-between mb-4">
                   <h3 className="text-xl font-bold text-gray-900">Membres clés</h3>
-                  <button onClick={() => setActiveTab('equipe')} className="text-indigo-600 hover:text-indigo-800 text-sm font-medium flex items-center">
+                  <button onClick={() => setActiveTab('equipe')} className="text-gray-900 hover:text-gray-600 text-sm font-medium flex items-center">
                     Voir toute l'équipe <ArrowLeft className="w-4 h-4 ml-1 rotate-180" />
                   </button>
                 </div>

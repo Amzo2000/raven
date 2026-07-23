@@ -54,11 +54,11 @@ function StartupSection({ title, items, onSelect }: { title: string, items: Star
   return (
     <div className="mb-6 relative group/section">
       <div className="flex items-center justify-between mb-2">
-        <h2 className="font-display text-lg sm:text-xl font-bold text-gray-900 cursor-pointer hover:text-indigo-600 transition-colors">
+        <h2 className="font-display text-lg sm:text-xl font-bold text-gray-900 cursor-pointer hover:text-gray-600 transition-colors">
           {title}
         </h2>
         <div className="flex items-center space-x-2">
-          <button className="text-sm font-medium text-indigo-600 hover:text-indigo-800 hover:underline cursor-pointer transition-colors hidden sm:block mr-4">
+          <button className="text-sm font-medium text-gray-900 hover:text-gray-600 hover:underline cursor-pointer transition-colors hidden sm:block mr-4">
             Tout voir
           </button>
         </div>
@@ -67,7 +67,7 @@ function StartupSection({ title, items, onSelect }: { title: string, items: Star
       <div className="relative">
         <button 
           onClick={() => scroll('left')}
-          className={`absolute -left-4 top-[40%] -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white shadow-md border border-gray-100 text-gray-600 hover:text-indigo-600 hover:bg-gray-50 transition-all items-center justify-center ${canScrollLeft ? 'hidden sm:flex' : 'hidden'}`}
+          className={`absolute -left-4 top-[40%] -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white shadow-md border border-gray-100 text-gray-600 hover:text-gray-900 hover:bg-gray-50 transition-all items-center justify-center ${canScrollLeft ? 'hidden sm:flex' : 'hidden'}`}
         >
           <ChevronLeft className="w-6 h-6" />
         </button>
@@ -84,8 +84,8 @@ function StartupSection({ title, items, onSelect }: { title: string, items: Star
           ))}
           
           <div className="w-[110px] sm:w-[140px] flex-shrink-0 snap-start flex items-stretch">
-            <div className="w-full h-full border border-gray-200 rounded-none bg-gray-50/50 flex flex-col items-center justify-center p-3 cursor-pointer hover:border-gray-300 transition-colors group">
-              <div className="w-10 h-10 rounded-none bg-gray-100 text-gray-600 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+            <div className="w-full h-full border border-gray-200 rounded-md bg-gray-50/50 flex flex-col items-center justify-center p-2 cursor-pointer hover:border-gray-300 transition-colors group">
+              <div className="w-10 h-10 rounded-sm bg-gray-100 text-gray-600 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
                 <ArrowRight className="w-6 h-6" />
               </div>
               <span className="font-medium text-gray-900">Voir plus</span>
@@ -96,7 +96,7 @@ function StartupSection({ title, items, onSelect }: { title: string, items: Star
 
         <button 
           onClick={() => scroll('right')}
-          className={`absolute -right-4 top-[40%] -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white shadow-md border border-gray-100 text-gray-600 hover:text-indigo-600 hover:bg-gray-50 transition-all items-center justify-center ${canScrollRight ? 'hidden sm:flex' : 'hidden'}`}
+          className={`absolute -right-4 top-[40%] -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white shadow-md border border-gray-100 text-gray-600 hover:text-gray-900 hover:bg-gray-50 transition-all items-center justify-center ${canScrollRight ? 'hidden sm:flex' : 'hidden'}`}
         >
           <ChevronRight className="w-6 h-6" />
         </button>
@@ -161,7 +161,7 @@ export default function StartupsView() {
         {canScrollLeft && (
           <button 
             onClick={() => scroll('left')}
-            className="absolute left-0 top-1/2 -translate-y-1/2 z-20 w-8 h-8 rounded-full bg-white shadow-md border border-gray-100 flex items-center justify-center text-gray-600 hover:text-indigo-600 transition-colors hidden sm:flex"
+            className="absolute left-0 top-1/2 -translate-y-1/2 z-20 w-8 h-8 rounded-full bg-white shadow-md border border-gray-100 flex items-center justify-center text-gray-600 hover:text-gray-900 transition-colors hidden sm:flex"
           >
             <ChevronLeft className="w-5 h-5" />
           </button>
@@ -170,15 +170,15 @@ export default function StartupsView() {
         <div 
           ref={scrollRef}
           onScroll={checkScroll}
-          className="flex space-x-3 overflow-x-auto hide-scrollbar scroll-smooth whitespace-nowrap py-1 -mx-4 px-4 sm:mx-0 sm:px-2 after:content-[''] after:w-px after:pr-4 after:sm:pr-0"
+          className="flex space-x-3 overflow-x-auto hide-scrollbar scroll-smooth whitespace-nowrap -mx-4 sm:mx-0 p-0 after:content-[''] after:w-px after:pr-4 after:sm:pr-0"
         >
           {CATEGORIES.map(({ name }) => (
             <button
               key={name}
               onClick={() => setActiveCategory(name)}
-              className={`flex items-center px-4 py-2 rounded-sm text-sm transition-colors border ${
+              className={`flex items-center px-3 py-1.5 rounded-full text-xs font-medium transition-colors border ${
                 activeCategory === name 
-                  ? 'bg-indigo-50 border-indigo-200 text-indigo-700' 
+                  ? 'bg-gray-900 border-gray-900 text-white' 
                   : 'bg-white border-gray-200 text-gray-700 hover:bg-gray-50 hover:border-gray-300'
               }`}
             >
@@ -190,7 +190,7 @@ export default function StartupsView() {
         {canScrollRight && (
           <button 
             onClick={() => scroll('right')}
-            className="absolute right-0 top-1/2 -translate-y-1/2 z-20 w-8 h-8 rounded-full bg-white shadow-md border border-gray-100 flex items-center justify-center text-gray-600 hover:text-indigo-600 transition-colors hidden sm:flex"
+            className="absolute right-0 top-1/2 -translate-y-1/2 z-20 w-8 h-8 rounded-full bg-white shadow-md border border-gray-100 flex items-center justify-center text-gray-600 hover:text-gray-900 transition-colors hidden sm:flex"
           >
             <ChevronRight className="w-5 h-5" />
           </button>

@@ -9,8 +9,8 @@ interface StartupCardProps {
 
 export default function StartupCard({ startup, onClick }: StartupCardProps) {
   return (
-    <div className="group cursor-pointer flex flex-col h-full transition-colors" onClick={onClick}>
-      <div className="relative aspect-[4/5] w-full overflow-hidden rounded-none bg-gray-100 mb-2">
+    <div className="group cursor-pointer flex flex-col h-full border border-gray-200 rounded-md overflow-hidden hover:border-gray-300 transition-colors" onClick={onClick}>
+      <div className="relative aspect-[4/5] w-full overflow-hidden bg-gray-100 mb-2">
         {startup.logoUrl ? (
           <img 
             src={startup.logoUrl} 
@@ -24,8 +24,8 @@ export default function StartupCard({ startup, onClick }: StartupCardProps) {
         )}
       </div>
       
-      <div className="flex flex-col items-start px-1">
-        <h3 className="font-semibold text-gray-900 text-xs sm:text-sm leading-snug line-clamp-2 group-hover:text-indigo-600 transition-colors">
+      <div className="flex flex-col items-start px-2 pb-2">
+        <h3 className="font-semibold text-gray-900 text-xs sm:text-sm leading-snug line-clamp-2 group-hover:text-gray-700 transition-colors">
           {startup.name}
         </h3>
         <p className="text-[11px] sm:text-xs text-gray-500 mt-0.5 line-clamp-2">{startup.tagline}</p>
