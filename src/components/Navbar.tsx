@@ -16,12 +16,13 @@ export default function Navbar({ currentView, onViewChange }: NavbarProps) {
       <div className="w-full px-4 sm:px-6 h-16 flex items-center justify-between border-b border-gray-100">
         {/* Left: Logo */}
         <div className={`flex items-center cursor-pointer sm:min-w-[200px] ${isMobileSearchOpen ? 'hidden sm:flex' : ''}`} onClick={() => onViewChange('startups')}>
-          <div className="w-8 h-8 flex items-center justify-center mr-3">
+          <div className="w-8 h-8 flex items-center justify-center mr-2">
             <img src={logoUrl} alt="Raven Logo" className="w-full h-full object-contain" />
           </div>
-          <span className="font-display font-bold text-xl text-gray-900 tracking-tight hidden lg:block">
-            Raven
-          </span>
+          <div className="flex items-baseline font-display font-bold text-xl text-gray-900 tracking-tight">
+            <span>Raven</span>
+            <div className="w-1.5 h-1.5 rounded-full bg-[#1DBF73] ml-0.5"></div>
+          </div>
         </div>
         
         {/* Center: Search */}

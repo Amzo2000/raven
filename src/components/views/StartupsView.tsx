@@ -157,7 +157,7 @@ export default function StartupsView() {
       transition={{ duration: 0.4 }}
       className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6"
     >
-      <div className="relative mb-4">
+      <div className="relative mb-10">
         {canScrollLeft && (
           <button 
             onClick={() => scroll('left')}
@@ -167,24 +167,29 @@ export default function StartupsView() {
           </button>
         )}
 
-        <div 
-          ref={scrollRef}
-          onScroll={checkScroll}
-          className="flex space-x-3 overflow-x-auto hide-scrollbar scroll-smooth whitespace-nowrap -mx-4 sm:mx-0 p-0 after:content-[''] after:w-px after:pr-4 after:sm:pr-0"
-        >
+        <div className="flex sm:justify-center border-b border-gray-200">
+          <div 
+            ref={scrollRef}
+            onScroll={checkScroll}
+            className="flex space-x-4 sm:space-x-6 overflow-x-auto hide-scrollbar scroll-smooth whitespace-nowrap p-0 after:content-[''] after:w-px after:pr-4 after:sm:pr-0 max-w-full"
+          >
           {CATEGORIES.map(({ name }) => (
             <button
               key={name}
               onClick={() => setActiveCategory(name)}
-              className={`flex items-center px-3 py-1.5 rounded-full text-xs font-medium transition-colors border ${
+              className={`flex items-center pb-3 text-xs font-bold uppercase tracking-wider transition-colors relative ${
                 activeCategory === name 
-                  ? 'bg-gray-900 border-gray-900 text-white' 
-                  : 'bg-white border-gray-200 text-gray-700 hover:bg-gray-50 hover:border-gray-300'
+                  ? 'text-[#1DBF73]' 
+                  : 'text-gray-500 hover:text-gray-700'
               }`}
             >
-              <span className="font-medium">{name}</span>
+              <span>{name}</span>
+              {activeCategory === name && (
+                <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#1DBF73]" />
+              )}
             </button>
           ))}
+          </div>
         </div>
 
         {canScrollRight && (
