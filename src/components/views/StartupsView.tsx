@@ -75,7 +75,7 @@ function StartupSection({ title, items, onSelect }: { title: string, items: Star
         <div 
           ref={scrollRef}
           onScroll={checkScroll}
-          className="flex overflow-x-auto pb-6 -mx-4 px-4 sm:mx-0 sm:px-0 gap-4 sm:gap-6 snap-x hide-scrollbar scroll-smooth after:content-[''] after:w-px after:pr-4 after:sm:pr-0"
+          className="flex overflow-x-auto pb-6 px-4 sm:mx-0 sm:px-0 gap-4 sm:gap-6 snap-x hide-scrollbar scroll-smooth after:content-[''] after:w-px after:pr-4 after:sm:pr-0"
         >
           {items.map((startup) => (
             <div key={startup.id} className="w-[240px] sm:w-[280px] flex-shrink-0 snap-start">
