@@ -1,0 +1,6 @@
+{
+  "name": "Raven",
+  "description": "Une plateforme reliant les startups, les investisseurs et les talents qualifiÃ©s.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
