@@ -83,15 +83,15 @@ export default function Navbar({ currentView, onViewChange }: NavbarProps) {
       
       {/* Mobile Bottom Navigation - Keeping this for mobile UX */}
       <div className="sm:hidden fixed bottom-0 left-0 right-0 bg-white dark:bg-[#111111] border-t border-gray-200 dark:border-gray-800 flex justify-around p-2 z-50 pb-safe">
-        <button onClick={() => onViewChange('startups')} className={`flex flex-col items-center justify-center w-full py-2 ${currentView === 'startups' ? 'text-gray-900 dark:text-white' : 'text-gray-500 dark:text-gray-400'}`}>
+        <button onClick={() => onViewChange('startups')} className={`flex flex-col items-center justify-center w-full py-2 ${currentView === 'startups' ? 'text-[#1DBF73]' : 'text-gray-500 dark:text-gray-400'}`}>
           <Building2 className="w-5 h-5" />
           <span className="text-[10px] mt-1 font-medium">Startups</span>
         </button>
-        <button onClick={() => onViewChange('investors')} className={`flex flex-col items-center justify-center w-full py-2 ${currentView === 'investors' ? 'text-gray-900 dark:text-white' : 'text-gray-500 dark:text-gray-400'}`}>
+        <button onClick={() => onViewChange('investors')} className={`flex flex-col items-center justify-center w-full py-2 ${currentView === 'investors' ? 'text-[#1DBF73]' : 'text-gray-500 dark:text-gray-400'}`}>
           <Briefcase className="w-5 h-5" />
           <span className="text-[10px] mt-1 font-medium">Investisseurs</span>
         </button>
-        <button onClick={() => onViewChange('talents')} className={`flex flex-col items-center justify-center w-full py-2 ${currentView === 'talents' ? 'text-gray-900 dark:text-white' : 'text-gray-500 dark:text-gray-400'}`}>
+        <button onClick={() => onViewChange('talents')} className={`flex flex-col items-center justify-center w-full py-2 ${currentView === 'talents' ? 'text-[#1DBF73]' : 'text-gray-500 dark:text-gray-400'}`}>
           <Users className="w-5 h-5" />
           <span className="text-[10px] mt-1 font-medium">Talents</span>
         </button>
