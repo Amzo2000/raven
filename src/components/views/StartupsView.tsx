@@ -54,11 +54,11 @@ function StartupSection({ title, items, onSelect }: { title: string, items: Star
   return (
     <div className="mb-6 relative group/section">
       <div className="flex items-center justify-between mb-2">
-        <h2 className="font-display text-lg sm:text-xl font-bold text-gray-900 cursor-pointer hover:text-gray-600 transition-colors">
+        <h2 className="font-mono text-sm sm:text-base font-bold text-gray-900 dark:text-gray-100 uppercase tracking-widest cursor-pointer hover:text-gray-600 dark:hover:text-gray-300 transition-colors">
           {title}
         </h2>
         <div className="flex items-center space-x-2">
-          <button className="text-sm font-medium text-gray-900 hover:text-gray-600 hover:underline cursor-pointer transition-colors hidden sm:block mr-4">
+          <button className="text-sm font-medium text-gray-900 dark:text-gray-300 hover:text-gray-600 dark:hover:text-white hover:underline cursor-pointer transition-colors hidden sm:block mr-4">
             Tout voir
           </button>
         </div>
@@ -67,7 +67,7 @@ function StartupSection({ title, items, onSelect }: { title: string, items: Star
       <div className="relative">
         <button 
           onClick={() => scroll('left')}
-          className={`absolute -left-4 top-[40%] -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white shadow-md border border-gray-100 text-gray-600 hover:text-gray-900 hover:bg-gray-50 transition-all items-center justify-center ${canScrollLeft ? 'hidden sm:flex' : 'hidden'}`}
+          className={`absolute -left-4 top-[40%] -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white dark:bg-gray-800 shadow-md border border-gray-100 dark:border-gray-700 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-50 dark:hover:bg-gray-700 transition-all items-center justify-center ${canScrollLeft ? 'hidden sm:flex' : 'hidden'}`}
         >
           <ChevronLeft className="w-6 h-6" />
         </button>
@@ -84,19 +84,19 @@ function StartupSection({ title, items, onSelect }: { title: string, items: Star
           ))}
           
           <div className="w-[110px] sm:w-[140px] flex-shrink-0 snap-start flex items-stretch">
-            <div className="w-full h-full border border-gray-200 rounded-md bg-gray-50/50 flex flex-col items-center justify-center p-2 cursor-pointer hover:border-gray-300 transition-colors group">
-              <div className="w-10 h-10 rounded-sm bg-gray-100 text-gray-600 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+            <div className="w-full h-full border border-gray-200 dark:border-gray-800 rounded-md bg-gray-50/50 dark:bg-gray-800/50 flex flex-col items-center justify-center p-2 cursor-pointer hover:border-gray-300 dark:hover:border-gray-600 transition-colors group">
+              <div className="w-10 h-10 rounded-sm bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
                 <ArrowRight className="w-6 h-6" />
               </div>
-              <span className="font-medium text-gray-900">Voir plus</span>
-              <span className="text-sm text-gray-500 text-center mt-1">Découvrir d'autres projets</span>
+              <span className="font-medium text-gray-900 dark:text-gray-100">Voir plus</span>
+              <span className="text-sm text-gray-500 dark:text-gray-400 text-center mt-1">Découvrir d'autres projets</span>
             </div>
           </div>
         </div>
 
         <button 
           onClick={() => scroll('right')}
-          className={`absolute -right-4 top-[40%] -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white shadow-md border border-gray-100 text-gray-600 hover:text-gray-900 hover:bg-gray-50 transition-all items-center justify-center ${canScrollRight ? 'hidden sm:flex' : 'hidden'}`}
+          className={`absolute -right-4 top-[40%] -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white dark:bg-gray-800 shadow-md border border-gray-100 dark:border-gray-700 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-50 dark:hover:bg-gray-700 transition-all items-center justify-center ${canScrollRight ? 'hidden sm:flex' : 'hidden'}`}
         >
           <ChevronRight className="w-6 h-6" />
         </button>
@@ -111,6 +111,19 @@ export default function StartupsView() {
   const popularStartups = startups.slice(2, 8); // Mixed
   
   const [selectedStartup, setSelectedStartup] = useState<Startup | null>(null);
+  const [savedScrollPosition, setSavedScrollPosition] = useState(0);
+
+  const handleStartupSelect = (startup: Startup) => {
+    setSavedScrollPosition(window.scrollY);
+    setSelectedStartup(startup);
+  };
+
+  const handleBack = () => {
+    setSelectedStartup(null);
+    setTimeout(() => {
+      window.scrollTo({ top: savedScrollPosition, behavior: 'instant' });
+    }, 0);
+  };
 
   const [activeCategory, setActiveCategory] = useState("Tous");
 
@@ -147,7 +160,7 @@ export default function StartupsView() {
   };
 
   if (selectedStartup) {
-    return <StartupDetailView startup={selectedStartup} onBack={() => setSelectedStartup(null)} />;
+    return <StartupDetailView startup={selectedStartup} onBack={handleBack} />;
   }
 
   return (
@@ -161,13 +174,13 @@ export default function StartupsView() {
         {canScrollLeft && (
           <button 
             onClick={() => scroll('left')}
-            className="absolute left-0 top-1/2 -translate-y-1/2 z-20 w-8 h-8 rounded-full bg-white shadow-md border border-gray-100 flex items-center justify-center text-gray-600 hover:text-gray-900 transition-colors hidden sm:flex"
+            className="absolute left-0 top-1/2 -translate-y-1/2 z-20 w-8 h-8 rounded-full bg-white dark:bg-gray-800 shadow-md border border-gray-100 dark:border-gray-700 flex items-center justify-center text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors hidden sm:flex"
           >
             <ChevronLeft className="w-5 h-5" />
           </button>
         )}
 
-        <div className="flex sm:justify-center border-b border-gray-200">
+        <div className="flex sm:justify-center border-b border-gray-200 dark:border-gray-800">
           <div 
             ref={scrollRef}
             onScroll={checkScroll}
@@ -177,10 +190,10 @@ export default function StartupsView() {
             <button
               key={name}
               onClick={() => setActiveCategory(name)}
-              className={`flex items-center pb-3 text-xs font-bold uppercase tracking-wider transition-colors relative ${
+              className={`flex items-center pb-3 text-xs font-mono font-bold uppercase tracking-widest transition-colors relative ${
                 activeCategory === name 
                   ? 'text-[#1DBF73]' 
-                  : 'text-gray-500 hover:text-gray-700'
+                  : 'text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300'
               }`}
             >
               <span>{name}</span>
@@ -195,7 +208,7 @@ export default function StartupsView() {
         {canScrollRight && (
           <button 
             onClick={() => scroll('right')}
-            className="absolute right-0 top-1/2 -translate-y-1/2 z-20 w-8 h-8 rounded-full bg-white shadow-md border border-gray-100 flex items-center justify-center text-gray-600 hover:text-gray-900 transition-colors hidden sm:flex"
+            className="absolute right-0 top-1/2 -translate-y-1/2 z-20 w-8 h-8 rounded-full bg-white dark:bg-gray-800 shadow-md border border-gray-100 dark:border-gray-700 flex items-center justify-center text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors hidden sm:flex"
           >
             <ChevronRight className="w-5 h-5" />
           </button>
@@ -205,18 +218,18 @@ export default function StartupsView() {
       {!isFiltering ? (
         <>
           <div className="flex flex-col">
-            <StartupSection title="Tendances" items={trendingStartups} onSelect={setSelectedStartup} />
-            <StartupSection title="Recommandés pour vous" items={recommendedStartups} onSelect={setSelectedStartup} />
-            <StartupSection title="Les plus populaires actuellement" items={popularStartups} onSelect={setSelectedStartup} />
+            <StartupSection title="01 — Tendances" items={trendingStartups} onSelect={handleStartupSelect} />
+            <StartupSection title="02 — Recommandés pour vous" items={recommendedStartups} onSelect={handleStartupSelect} />
+            <StartupSection title="03 — Les plus populaires actuellement" items={popularStartups} onSelect={handleStartupSelect} />
           </div>
 
-          <hr className="my-3 border-gray-200" />
+          <hr className="my-3 border-gray-200 dark:border-gray-800" />
 
           <div className="mb-6">
-            <h2 className="font-display text-lg sm:text-xl font-bold text-gray-900 mb-3">Explorez plus de projets</h2>
+            <h2 className="font-display text-lg sm:text-xl font-bold text-gray-900 dark:text-gray-100 mb-3">Explorez plus de projets</h2>
             <div className="grid grid-cols-3 sm:grid-cols-[repeat(auto-fill,minmax(120px,1fr))] gap-2 sm:gap-4">
               {startups.map((startup) => (
-                <StartupCard key={startup.id} startup={startup} onClick={() => setSelectedStartup(startup)} />
+                <StartupCard key={startup.id} startup={startup} onClick={() => handleStartupSelect(startup)} />
               ))}
             </div>
           </div>
@@ -224,7 +237,7 @@ export default function StartupsView() {
       ) : (
         <div className="mb-6">
           <div className="mb-3">
-            <h2 className="font-display text-lg sm:text-xl font-bold text-gray-900">
+            <h2 className="font-display text-lg sm:text-xl font-bold text-gray-900 dark:text-gray-100">
               Projets dans la catégorie {activeCategory}
             </h2>
           </div>
@@ -232,12 +245,12 @@ export default function StartupsView() {
           {filteredStartups.length > 0 ? (
             <div className="grid grid-cols-3 sm:grid-cols-[repeat(auto-fill,minmax(120px,1fr))] gap-2 sm:gap-4">
               {filteredStartups.map((startup) => (
-                <StartupCard key={startup.id} startup={startup} onClick={() => setSelectedStartup(startup)} />
+                <StartupCard key={startup.id} startup={startup} onClick={() => handleStartupSelect(startup)} />
               ))}
             </div>
           ) : (
-            <div className="text-center py-12 bg-gray-50 rounded-lg border border-gray-100">
-              <p className="text-gray-500">Aucun projet trouvé dans cette catégorie pour le moment.</p>
+            <div className="text-center py-12 bg-gray-50 dark:bg-gray-800/50 rounded-lg border border-gray-100 dark:border-gray-800">
+              <p className="text-gray-500 dark:text-gray-400">Aucun projet trouvé dans cette catégorie pour le moment.</p>
             </div>
           )}
         </div>
