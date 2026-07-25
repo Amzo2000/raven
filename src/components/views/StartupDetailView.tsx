@@ -126,7 +126,7 @@ export default function StartupDetailView({ startup, onBack }: StartupDetailView
           </div>
           
           {/* Tabs */}
-          <nav className="hidden sm:flex gap-1 -mb-px overflow-x-auto hide-scrollbar">
+          <nav className="flex gap-1 -mb-px overflow-x-auto hide-scrollbar">
             <button
               onClick={() => setActiveTab('apercu')}
               className={`font-mono text-[12.5px] font-medium px-1.5 py-3 mr-6 uppercase tracking-wide border-b-2 transition-colors whitespace-nowrap ${
