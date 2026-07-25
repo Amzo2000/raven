@@ -14,6 +14,24 @@ export default function Navbar({ currentView, onViewChange }: NavbarProps) {
   const [isMobileSearchOpen, setIsMobileSearchOpen] = useState(false);
   const { theme, toggleTheme } = useTheme();
   
+  const [showBottomNav, setShowBottomNav] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      if (currentScrollY > lastScrollY && currentScrollY > 50) {
+        setShowBottomNav(false); // scrolling down
+      } else {
+        setShowBottomNav(true); // scrolling up
+      }
+      setLastScrollY(currentScrollY);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [lastScrollY]);
+
   return (
     <nav className="bg-white dark:bg-[#111111] sticky top-0 z-50 flex flex-col">
       <div className="w-full px-4 sm:px-6 h-16 flex items-center justify-between border-b border-gray-100 dark:border-gray-800">
@@ -82,7 +100,11 @@ export default function Navbar({ currentView, onViewChange }: NavbarProps) {
       </div>
       
       {/* Mobile Bottom Navigation - Keeping this for mobile UX */}
-      <div className="sm:hidden fixed bottom-0 left-0 right-0 bg-white dark:bg-[#111111] border-t border-gray-200 dark:border-gray-800 flex justify-around p-2 z-50 pb-safe">
+      <div 
+        className={`sm:hidden fixed bottom-0 left-0 right-0 bg-white/90 dark:bg-[#111111]/90 backdrop-blur-xl border-t border-gray-200 dark:border-gray-800 flex justify-around p-2 z-50 pb-safe transition-transform duration-300 ease-in-out ${
+          showBottomNav ? 'translate-y-0' : 'translate-y-full'
+        }`}
+      >
         <button onClick={() => onViewChange('startups')} className={`flex flex-col items-center justify-center w-full py-2 ${currentView === 'startups' ? 'text-[#1DBF73]' : 'text-gray-500 dark:text-gray-400'}`}>
           <Building2 className="w-5 h-5" />
           <span className="text-[10px] mt-1 font-medium">Startups</span>

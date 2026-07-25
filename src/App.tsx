@@ -9,6 +9,7 @@ import Sidebar from './components/Sidebar';
 import StartupsView from './components/views/StartupsView';
 import InvestorsView from './components/views/InvestorsView';
 import TalentsView from './components/views/TalentsView';
+import UpdatePopup from './components/UpdatePopup';
 import { ViewState } from './types';
 
 export default function App() {
@@ -36,6 +37,7 @@ export default function App() {
           {renderView()}
         </main>
       </div>
+      <UpdatePopup />
     </div>
   );
 }
