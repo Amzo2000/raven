@@ -31,10 +31,10 @@ export const startups: Startup[] = [
       { label: 'Stade', value: 'Amorçage' },
     ],
     investorData: {
-      capitalSocial: '10 000 €',
+      capitalSocial: '10 000 MRU',
       users: '+15 000 utilisateurs actifs',
       growthRate: '+25% de croissance mensuelle (MoM)',
-      revenue: '120 000 € de CA sur les 12 derniers mois',
+      revenue: '120 000 MRU de CA sur les 12 derniers mois',
       teamSize: 'Équipe de 6 collaborateurs',
       marketSize: 'Marché cible de 2 milliards d\'euros',
     }
@@ -51,10 +51,10 @@ export const startups: Startup[] = [
     openRoles: ['Product Manager', 'Développeur Mobile iOS'],
     stage: 'Amorçage',
     investorData: {
-      capitalSocial: '15 000 €',
+      capitalSocial: '15 000 MRU',
       users: '+50 établissements de santé',
       growthRate: '+15% de croissance mensuelle (MoM)',
-      revenue: '85 000 € d\'ARR',
+      revenue: '85 000 MRU d\'ARR',
       teamSize: 'Équipe de 4 collaborateurs',
       marketSize: 'Marché cible de 1.5 milliards d\'euros',
     }
@@ -187,21 +187,21 @@ export const investors: Investor[] = [
     name: 'Marc Dubois',
     focus: ['Fintech', 'SaaS B2B'],
     bio: "Ancien entrepreneur devenu Business Angel. J'investis dans des équipes passionnées résolvant de vrais problèmes d'entreprise.",
-    investmentRange: '50k€ - 200k€',
+    investmentRange: '50k MRU - 200k MRU',
   },
   {
     id: 'i2',
     name: 'Sophie Laurent',
     focus: ['HealthTech', 'Greentech', 'Impact'],
     bio: "Partenaire chez Impact Ventures. Nous cherchons à financer les innovations qui améliorent la vie et protègent la planète.",
-    investmentRange: '200k€ - 1M€',
+    investmentRange: '200k MRU - 1M MRU',
   },
   {
     id: 'i3',
     name: 'Capital Innovation',
     focus: ['IA', 'Cybersécurité', 'DeepTech'],
     bio: "Fonds d'amorçage spécialisé dans les technologies de rupture et la deeptech.",
-    investmentRange: '500k€ - 2M€',
+    investmentRange: '500k MRU - 2M MRU',
   },
 ];
 
@@ -232,6 +232,6 @@ export const talents: Talent[] = [
     name: 'Julie Rivière',
     title: 'Directrice Marketing (CMO)',
     skills: ['Growth Hacking', 'SEO', 'Brand Strategy', 'B2B Marketing'],
-    bio: "Experte en stratégie d'acquisition. J'ai aidé 3 startups à passer de 0 à 1M€ d'ARR.",
+    bio: "Experte en stratégie d'acquisition. J'ai aidé 3 startups à passer de 0 à 1M MRU d'ARR.",
   },
 ];

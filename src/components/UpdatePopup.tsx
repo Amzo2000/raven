@@ -2,12 +2,12 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { X, Sparkles } from 'lucide-react';
 
-const CURRENT_UPDATE_ID = 'update-v1.2';
+const CURRENT_UPDATE_ID = 'update-v1.5';
 const UPDATE_POINTS = [
-  "Navigation mobile adaptative avec barre inférieure",
-  "La barre de navigation inférieure se masque automatiquement au scroll pour plus d'espace",
-  "Mise à jour détaillée et améliorée de la page Startup Detail View",
-  "Améliorations générales de l'interface et corrections mineures"
+  "Bouton d'investissement ajouté dans la page détaillée des startups",
+  "Visualisation en temps réel des personnes et entreprises ayant investi",
+  "Toutes les valeurs financières ont été converties en devise MRU",
+  "Améliorations générales de l'affichage dans l'espace investisseurs"
 ];
 
 export default function UpdatePopup() {
