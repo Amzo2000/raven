@@ -6,9 +6,10 @@ import { Startup } from '../../types';
 interface StartupDetailViewProps {
   startup: Startup;
   onBack: () => void;
+  onProfileClick?: (profile: any) => void;
 }
 
-export default function StartupDetailView({ startup, onBack }: StartupDetailViewProps) {
+export default function StartupDetailView({ startup, onBack, onProfileClick }: StartupDetailViewProps) {
   const [activeTab, setActiveTab] = useState<'apercu' | 'equipe' | 'investisseurs'>('apercu');
   const [activeFilter, setActiveFilter] = useState('all');
   const [composerTag, setComposerTag] = useState('produit');
@@ -116,12 +117,6 @@ export default function StartupDetailView({ startup, onBack }: StartupDetailView
             </div>
             
             <div className="flex gap-2 sm:gap-2.5 w-full sm:w-auto">
-              <button className="flex-1 sm:flex-none font-medium text-[13.5px] px-3 sm:px-4 py-2.5 rounded-lg border border-gray-200 dark:border-gray-800 text-gray-900 dark:text-white hover:border-gray-300 dark:hover:border-gray-700 transition-all flex items-center justify-center gap-1.5">
-                Contacter
-              </button>
-              <button className="flex-1 sm:flex-none font-medium text-[13.5px] px-3 sm:px-4 py-2.5 rounded-lg border border-gray-200 dark:border-gray-800 text-gray-900 dark:text-white hover:border-gray-300 dark:hover:border-gray-700 transition-all flex items-center justify-center gap-1.5">
-                Site web <ArrowUpRight className="w-4 h-4 hidden sm:block" />
-              </button>
               <button className="flex-[1.5] sm:flex-none font-medium text-[13.5px] px-4 sm:px-5 py-2.5 rounded-lg bg-[#3F6B4A] dark:bg-[#6FC97F] text-white dark:text-gray-900 hover:bg-[#2C4E35] dark:hover:bg-[#5CB56C] transition-all flex items-center justify-center gap-1.5 shadow-sm">
                 Investir
               </button>
@@ -568,7 +563,11 @@ export default function StartupDetailView({ startup, onBack }: StartupDetailView
             {startup.team && startup.team.length > 0 ? (
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5">
                 {startup.team.map((member) => (
-                  <div key={member.id} className="bg-white dark:bg-[#111111] border border-gray-200 dark:border-gray-800 rounded-xl p-4.5 hover:border-[#3F6B4A] dark:hover:border-[#6FC97F] transition-colors">
+                  <div 
+                    key={member.id} 
+                    className="bg-white dark:bg-[#111111] border border-gray-200 dark:border-gray-800 rounded-xl p-4.5 hover:border-[#3F6B4A] dark:hover:border-[#6FC97F] transition-colors cursor-pointer"
+                    onClick={() => onProfileClick && onProfileClick(member)}
+                  >
                     <div className="w-[42px] h-[42px] rounded-full bg-[#DCE8DD] dark:bg-gray-800 text-[#2C4E35] dark:text-[#9BDBA8] flex items-center justify-center font-display font-bold text-[14px] mb-3.5 overflow-hidden">
                       {member.avatarUrl ? (
                         <img src={member.avatarUrl} alt={member.name} className="w-full h-full object-cover" />

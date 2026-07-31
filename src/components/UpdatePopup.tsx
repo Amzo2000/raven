@@ -2,12 +2,13 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { X, Sparkles } from 'lucide-react';
 
-const CURRENT_UPDATE_ID = 'update-v1.5';
+const CURRENT_UPDATE_ID = 'update-v1.10';
 const UPDATE_POINTS = [
-  "Bouton d'investissement ajouté dans la page détaillée des startups",
-  "Visualisation en temps réel des personnes et entreprises ayant investi",
-  "Toutes les valeurs financières ont été converties en devise MRU",
-  "Améliorations générales de l'affichage dans l'espace investisseurs"
+  "Bouton investir dans le header de startup detail view",
+  "Page de profil détaillée créée",
+  "Clic sur un membre de l'équipe fonctionnel et redirige vers son profil",
+  "Correction du bouton retour dans le profil",
+  "Design du profil amélioré sur mobile (header et avatar)"
 ];
 
 export default function UpdatePopup() {

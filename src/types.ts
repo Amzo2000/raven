@@ -6,6 +6,16 @@ export interface TeamMember {
   role: string;
   avatarUrl?: string;
   type: 'cofounder' | 'associate' | 'employee' | 'partner';
+  bio?: string;
+  skills?: string[];
+  location?: string;
+  experience?: string;
+  education?: string;
+  socialLinks?: {
+    linkedin?: string;
+    twitter?: string;
+    website?: string;
+  };
 }
 
 export interface Startup {
@@ -51,6 +61,14 @@ export interface Talent {
   skills: string[];
   bio: string;
   avatarUrl?: string;
+  location?: string;
+  experience?: string;
+  education?: string;
+  socialLinks?: {
+    linkedin?: string;
+    twitter?: string;
+    website?: string;
+  };
 }
 
 export type ViewState = 'startups' | 'investors' | 'talents';
