@@ -2,13 +2,15 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { X, Sparkles } from 'lucide-react';
 
-const CURRENT_UPDATE_ID = 'update-v1.10';
+const CURRENT_UPDATE_ID = 'update-v1.15';
 const UPDATE_POINTS = [
-  "Bouton investir dans le header de startup detail view",
-  "Page de profil détaillée créée",
-  "Clic sur un membre de l'équipe fonctionnel et redirige vers son profil",
-  "Correction du bouton retour dans le profil",
-  "Design du profil amélioré sur mobile (header et avatar)"
+  "Nouvelle page de profil détaillée, complète et riche pour les investisseurs",
+  "Affichage des informations clés : tickets moyens, capital déployé, stades d'investissement, secteurs",
+  "Ajout de la section 'À propos' détaillée, de l'équipe d'investissement (pour les fonds) et du portfolio",
+  "Design professionnel et moderne différenciant subtilement les Business Angels des Fonds",
+  "Alignement du format des cartes investisseurs sur la structure demandée (JR, ✓, metrics, etc)",
+  "Différenciation de la forme des avatars : Rond pour les particuliers, carré arrondi pour les fonds",
+  "Ajout des nouvelles métriques clés pour chaque investisseur"
 ];
 
 export default function UpdatePopup() {
@@ -61,7 +63,7 @@ export default function UpdatePopup() {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
             transition={{ type: "spring", damping: 25, stiffness: 300 }}
-            className="relative w-full max-w-md bg-white dark:bg-[#111111] border border-[#3F6B4A]/30 dark:border-[#6FC97F]/30 shadow-2xl rounded-2xl p-6 overflow-hidden"
+            className="relative w-full max-w-md bg-white dark:bg-[#111111] border border-[#3F6B4A]/30 dark:border-[#6FC97F]/30 shadow-2xl rounded-xl p-6 overflow-hidden"
           >
             <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#3F6B4A] to-[#6FC97F]"></div>
             

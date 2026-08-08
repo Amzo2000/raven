@@ -190,7 +190,7 @@ export default function StartupDetailView({ startup, onBack, onProfileClick }: S
               </div>
 
               {/* Readout Block (Signature) */}
-              <div className="bg-[#16211B] rounded-2xl p-6 sm:p-7 text-white flex flex-col sm:flex-row gap-6 sm:gap-8 sm:items-center justify-between">
+              <div className="bg-[#16211B] rounded-xl p-6 sm:p-7 text-white flex flex-col sm:flex-row gap-6 sm:gap-8 sm:items-center justify-between">
                 <div className="w-full sm:w-auto pb-1 sm:pb-0">
                   <div className="font-mono text-[10px] sm:text-[11px] text-[#9FB09F] uppercase tracking-widest mb-2.5">
                     Métrique principale

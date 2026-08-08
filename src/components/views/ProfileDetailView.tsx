@@ -69,7 +69,7 @@ export default function ProfileDetailView({ profile, onBack }: ProfileDetailView
           {/* Left Column - Profile Info */}
           <div className="w-full md:w-1/3 flex flex-col items-start">
             <div className="flex flex-row md:flex-col items-center md:items-start gap-4 md:gap-0 w-full mb-6">
-              <div className="shrink-0 w-28 h-28 sm:w-32 sm:h-32 md:w-40 md:h-40 rounded-md bg-[#DCE8DD] dark:bg-gray-800 text-[#2C4E35] dark:text-[#9BDBA8] flex items-center justify-center font-display font-bold text-3xl md:text-4xl overflow-hidden shadow-sm border border-gray-100 dark:border-gray-800 md:mb-6">
+              <div className="shrink-0 w-28 h-28 sm:w-32 sm:h-32 md:w-40 md:h-40 rounded-md bg-[#DCE8DD] dark:bg-gray-800 text-[#2C4E35] dark:text-[#9BDBA8] flex items-center justify-center font-display font-bold text-3xl md:text-4xl overflow-hidden shadow-sm ring-1 ring-gray-900/5 dark:ring-white/10 border-0 md:mb-6">
                 {profile.avatarUrl ? (
                   <img src={profile.avatarUrl} alt={profile.name} className="w-full h-full object-cover" />
                 ) : (
@@ -135,7 +135,7 @@ export default function ProfileDetailView({ profile, onBack }: ProfileDetailView
 
           {/* Right Column - Details */}
           <div className="w-full md:w-2/3 flex flex-col gap-8">
-            <section className="bg-gray-50/50 dark:bg-[#151515] rounded-2xl p-6 sm:p-8 border border-gray-100 dark:border-gray-800">
+            <section className="bg-gray-50/50 dark:bg-[#151515] rounded-xl p-6 sm:p-8 ring-1 ring-gray-900/5 dark:ring-white/10 border-0">
               <h2 className="font-display font-semibold text-xl text-gray-900 dark:text-white mb-4">À propos</h2>
               <p className="text-[14.5px] text-gray-600 dark:text-gray-400 leading-relaxed whitespace-pre-line">
                 {bio}
@@ -148,7 +148,7 @@ export default function ProfileDetailView({ profile, onBack }: ProfileDetailView
                 {skills.map((skill, index) => (
                   <span 
                     key={index}
-                    className="px-3.5 py-1.5 rounded-lg bg-gray-100 dark:bg-gray-800/80 text-gray-700 dark:text-gray-300 text-[13.5px] font-medium border border-gray-200 dark:border-gray-700/50"
+                    className="px-3.5 py-1.5 rounded-lg bg-gray-100 dark:bg-gray-800/80 text-gray-700 dark:text-gray-300 text-[13.5px] font-medium ring-1 ring-gray-900/5 dark:ring-white/10 border-0"
                   >
                     {skill}
                   </span>
@@ -164,7 +164,7 @@ export default function ProfileDetailView({ profile, onBack }: ProfileDetailView
                   <div className="flex items-center justify-center w-5 h-5 rounded-full border border-white dark:border-[#111111] bg-[#3F6B4A] dark:bg-[#6FC97F] text-white shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10 shadow-sm ml-0.5 md:ml-0">
                     <div className="w-1.5 h-1.5 rounded-full bg-white dark:bg-[#111111]"></div>
                   </div>
-                  <div className="w-[calc(100%-2rem)] md:w-[calc(50%-1.5rem)] p-4 rounded-xl border border-gray-100 dark:border-gray-800 bg-white dark:bg-[#151515] shadow-sm ml-4 md:ml-0">
+                  <div className="w-[calc(100%-2rem)] md:w-[calc(50%-1.5rem)] p-4 rounded-xl ring-1 ring-gray-900/5 dark:ring-white/10 border-0 bg-white dark:bg-[#151515] shadow-sm ml-4 md:ml-0">
                     <div className="flex items-center justify-between mb-1">
                       <h3 className="font-semibold text-[14.5px] text-gray-900 dark:text-white">{roleTitle}</h3>
                       <span className="text-[11.5px] font-medium text-[#3F6B4A] dark:text-[#6FC97F]">2023 - Présent</span>
@@ -179,7 +179,7 @@ export default function ProfileDetailView({ profile, onBack }: ProfileDetailView
                 <div className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
                   <div className="flex items-center justify-center w-5 h-5 rounded-full border border-white dark:border-[#111111] bg-gray-200 dark:bg-gray-700 text-white shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10 ml-0.5 md:ml-0">
                   </div>
-                  <div className="w-[calc(100%-2rem)] md:w-[calc(50%-1.5rem)] p-4 rounded-xl border border-gray-100 dark:border-gray-800 bg-white dark:bg-[#151515] shadow-sm ml-4 md:ml-0">
+                  <div className="w-[calc(100%-2rem)] md:w-[calc(50%-1.5rem)] p-4 rounded-xl ring-1 ring-gray-900/5 dark:ring-white/10 border-0 bg-white dark:bg-[#151515] shadow-sm ml-4 md:ml-0">
                     <div className="flex items-center justify-between mb-1">
                       <h3 className="font-semibold text-[14.5px] text-gray-900 dark:text-white">Senior Manager</h3>
                       <span className="text-[11.5px] font-medium text-gray-500">2019 - 2023</span>

@@ -8,7 +8,7 @@ interface TalentCardProps {
 
 export default function TalentCard({ talent }: TalentCardProps) {
   return (
-    <div className="bg-white rounded-xl border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow duration-300">
+    <div className="bg-white rounded-xl ring-1 ring-gray-900/5 dark:ring-white/10 overflow-hidden hover:shadow-md transition-shadow duration-300">
       <div className="p-6">
         <div className="flex items-center space-x-4 mb-4">
           <div className="w-14 h-14 rounded-full bg-gradient-to-br from-blue-100 to-cyan-100 flex items-center justify-center flex-shrink-0 text-blue-700 font-bold text-xl">
@@ -30,7 +30,7 @@ export default function TalentCard({ talent }: TalentCardProps) {
             {talent.skills.map((skill, index) => (
               <span 
                 key={index} 
-                className="inline-flex items-center px-2.5 py-0.5 rounded-md text-xs font-medium bg-gray-100 text-gray-700 border border-gray-200"
+                className="inline-flex items-center px-2.5 py-0.5 rounded-md text-xs font-medium bg-gray-50 text-gray-600 ring-1 ring-gray-900/5"
               >
                 {skill}
               </span>

@@ -67,7 +67,7 @@ function StartupSection({ title, items, onSelect }: { title: string, items: Star
       <div className="relative">
         <button 
           onClick={() => scroll('left')}
-          className={`absolute -left-4 top-[40%] -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white dark:bg-gray-800 shadow-md border border-gray-100 dark:border-gray-700 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-50 dark:hover:bg-gray-700 transition-all items-center justify-center ${canScrollLeft ? 'hidden sm:flex' : 'hidden'}`}
+          className={`absolute -left-4 top-[40%] -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white dark:bg-gray-800 shadow-md ring-1 ring-gray-900/5 dark:ring-white/10 border-0 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-50 dark:hover:bg-gray-700 transition-all items-center justify-center ${canScrollLeft ? 'hidden sm:flex' : 'hidden'}`}
         >
           <ChevronLeft className="w-6 h-6" />
         </button>
@@ -84,7 +84,7 @@ function StartupSection({ title, items, onSelect }: { title: string, items: Star
           ))}
           
           <div className="w-[110px] sm:w-[140px] flex-shrink-0 snap-start flex items-stretch">
-            <div className="w-full h-full border border-gray-200 dark:border-gray-800 rounded-md bg-gray-50/50 dark:bg-gray-800/50 flex flex-col items-center justify-center p-2 cursor-pointer hover:border-gray-300 dark:hover:border-gray-600 transition-colors group">
+            <div className="w-full h-full ring-1 ring-gray-900/5 dark:ring-white/10 rounded-xl bg-gray-50/50 dark:bg-gray-800/50 flex flex-col items-center justify-center p-2 cursor-pointer hover:border-gray-300 dark:hover:border-gray-600 transition-colors group">
               <div className="w-10 h-10 rounded-sm bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
                 <ArrowRight className="w-6 h-6" />
               </div>
@@ -96,7 +96,7 @@ function StartupSection({ title, items, onSelect }: { title: string, items: Star
 
         <button 
           onClick={() => scroll('right')}
-          className={`absolute -right-4 top-[40%] -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white dark:bg-gray-800 shadow-md border border-gray-100 dark:border-gray-700 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-50 dark:hover:bg-gray-700 transition-all items-center justify-center ${canScrollRight ? 'hidden sm:flex' : 'hidden'}`}
+          className={`absolute -right-4 top-[40%] -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white dark:bg-gray-800 shadow-md ring-1 ring-gray-900/5 dark:ring-white/10 border-0 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-50 dark:hover:bg-gray-700 transition-all items-center justify-center ${canScrollRight ? 'hidden sm:flex' : 'hidden'}`}
         >
           <ChevronRight className="w-6 h-6" />
         </button>
@@ -174,7 +174,7 @@ export default function StartupsView({ onProfileClick }: { onProfileClick?: (pro
         {canScrollLeft && (
           <button 
             onClick={() => scroll('left')}
-            className="absolute left-0 top-1/2 -translate-y-1/2 z-20 w-8 h-8 rounded-full bg-white dark:bg-gray-800 shadow-md border border-gray-100 dark:border-gray-700 flex items-center justify-center text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors hidden sm:flex"
+            className="absolute left-0 top-1/2 -translate-y-1/2 z-20 w-8 h-8 rounded-full bg-white dark:bg-gray-800 shadow-md ring-1 ring-gray-900/5 dark:ring-white/10 border-0 flex items-center justify-center text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors hidden sm:flex"
           >
             <ChevronLeft className="w-5 h-5" />
           </button>
@@ -208,7 +208,7 @@ export default function StartupsView({ onProfileClick }: { onProfileClick?: (pro
         {canScrollRight && (
           <button 
             onClick={() => scroll('right')}
-            className="absolute right-0 top-1/2 -translate-y-1/2 z-20 w-8 h-8 rounded-full bg-white dark:bg-gray-800 shadow-md border border-gray-100 dark:border-gray-700 flex items-center justify-center text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors hidden sm:flex"
+            className="absolute right-0 top-1/2 -translate-y-1/2 z-20 w-8 h-8 rounded-full bg-white dark:bg-gray-800 shadow-md ring-1 ring-gray-900/5 dark:ring-white/10 border-0 flex items-center justify-center text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors hidden sm:flex"
           >
             <ChevronRight className="w-5 h-5" />
           </button>
@@ -249,7 +249,7 @@ export default function StartupsView({ onProfileClick }: { onProfileClick?: (pro
               ))}
             </div>
           ) : (
-            <div className="text-center py-12 bg-gray-50 dark:bg-gray-800/50 rounded-lg border border-gray-100 dark:border-gray-800">
+            <div className="text-center py-12 bg-gray-50 dark:bg-gray-800/50 rounded-lg ring-1 ring-gray-900/5 dark:ring-white/10 border-0">
               <p className="text-gray-500 dark:text-gray-400">Aucun projet trouvé dans cette catégorie pour le moment.</p>
             </div>
           )}

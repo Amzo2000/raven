@@ -48,10 +48,27 @@ export interface Startup {
 export interface Investor {
   id: string;
   name: string;
+  type: 'particulier' | 'entreprise_fonds';
+  subtitle?: string;
+  verified?: boolean;
   focus: string[];
   bio: string;
+  about?: string;
   investmentRange: string;
+  totalInvested?: string;
+  avgTicket?: string;
   avatarUrl?: string;
+  coverUrl?: string;
+  location?: string;
+  website?: string;
+  portfolioCount?: number;
+  socialLinks?: {
+    linkedin?: string;
+    twitter?: string;
+  };
+  stages?: string[];
+  portfolio?: { name: string; logoUrl?: string; industry: string; url?: string }[];
+  team?: { name: string; role: string; avatarUrl?: string; linkedin?: string }[];
 }
 
 export interface Talent {
