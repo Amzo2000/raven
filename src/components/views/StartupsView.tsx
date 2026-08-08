@@ -32,7 +32,7 @@ function StartupSection({ title, items, onSelect }: { title: string, items: Star
     if (scrollRef.current) {
       const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
       setCanScrollLeft(scrollLeft > 0);
-      setCanScrollRight(Math.ceil(scrollLeft + clientWidth) < scrollWidth);
+      setCanScrollRight(scrollLeft + clientWidth < scrollWidth - 2);
     }
   };
 
@@ -135,7 +135,7 @@ export default function StartupsView({ onProfileClick }: { onProfileClick?: (pro
     if (scrollRef.current) {
       const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
       setCanScrollLeft(scrollLeft > 0);
-      setCanScrollRight(Math.ceil(scrollLeft + clientWidth) < scrollWidth);
+      setCanScrollRight(scrollLeft + clientWidth < scrollWidth - 2);
     }
   };
 

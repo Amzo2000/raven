@@ -17,14 +17,9 @@ interface InvestorsViewProps {
 
 export default function InvestorsView({ onInvestorClick }: InvestorsViewProps) {
   const [activeCategory, setActiveCategory] = useState('tous');
-  const [searchQuery, setSearchQuery] = useState('');
 
   const filteredInvestors = investors.filter(investor => {
-    const matchesCategory = activeCategory === 'tous' || investor.type === activeCategory;
-    const matchesSearch = investor.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
-                          investor.focus.some(f => f.toLowerCase().includes(searchQuery.toLowerCase())) ||
-                          investor.bio.toLowerCase().includes(searchQuery.toLowerCase());
-    return matchesCategory && matchesSearch;
+    return activeCategory === 'tous' || investor.type === activeCategory;
   });
 
   return (
@@ -36,19 +31,7 @@ export default function InvestorsView({ onInvestorClick }: InvestorsViewProps) {
     >
       <div className="flex flex-col md:flex-row items-center justify-between mb-8 gap-4">
         <h1 className="font-display text-2xl sm:text-3xl font-bold text-gray-900 dark:text-gray-100 self-start md:self-auto shrink-0">Investisseurs</h1>
-        <div className="flex items-center space-x-3 w-full max-w-xl">
-          <div className="relative flex-grow">
-            <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-              <Search className="h-4 w-4 text-gray-400" />
-            </div>
-            <input
-              type="text"
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className="block w-full pl-9 pr-3 py-2 border border-gray-200 dark:border-gray-700 rounded-lg leading-5 bg-white dark:bg-[#151515] text-gray-900 dark:text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#3F6B4A] focus:border-[#3F6B4A] text-sm transition-shadow shadow-sm"
-              placeholder="Rechercher (nom, secteur...)"
-            />
-          </div>
+        <div className="flex items-center space-x-3">
           <button className="inline-flex items-center px-4 py-2 border border-gray-200 dark:border-gray-700 rounded-lg shadow-sm text-sm font-medium text-gray-700 dark:text-gray-200 bg-white dark:bg-[#151515] hover:bg-gray-50 dark:hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#3F6B4A] transition-colors">
             <Filter className="h-4 w-4 sm:mr-2 text-gray-500 dark:text-gray-400" />
             <span className="hidden sm:inline">Filtres</span>
@@ -103,10 +86,7 @@ export default function InvestorsView({ onInvestorClick }: InvestorsViewProps) {
             Nous n'avons pas trouvé d'investisseur correspondant à vos critères de recherche. Essayez de modifier vos filtres.
           </p>
           <button 
-            onClick={() => {
-              setSearchQuery('');
-              setActiveCategory('tous');
-            }}
+            onClick={() => setActiveCategory('tous')}
             className="mt-6 font-medium text-[13px] px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
           >
             Réinitialiser la recherche
