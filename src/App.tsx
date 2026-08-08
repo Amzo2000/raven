@@ -19,6 +19,12 @@ export default function App() {
   const [selectedProfile, setSelectedProfile] = useState<TeamMember | Talent | null>(null);
   const [selectedInvestor, setSelectedInvestor] = useState<Investor | null>(null);
 
+  const handleViewChange = (view: ViewState) => {
+    setCurrentView(view);
+    setSelectedProfile(null);
+    setSelectedInvestor(null);
+  };
+
   const renderView = () => {
     switch (currentView) {
       case 'startups':
@@ -34,9 +40,9 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-white dark:bg-[#111111] flex pb-16 sm:pb-0">
-      <Sidebar currentView={currentView} onViewChange={setCurrentView} />
+      <Sidebar currentView={currentView} onViewChange={handleViewChange} />
       <div className="flex-1 flex flex-col w-full min-w-0 relative">
-        <Navbar currentView={currentView} onViewChange={setCurrentView} />
+        <Navbar currentView={currentView} onViewChange={handleViewChange} />
         <main className="flex-1 w-full relative">
           <div style={{ display: (selectedProfile || selectedInvestor) ? 'none' : 'block', height: '100%' }}>
             {renderView()}

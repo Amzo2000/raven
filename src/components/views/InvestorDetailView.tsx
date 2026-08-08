@@ -66,7 +66,7 @@ export default function InvestorDetailView({ investor, onBack }: InvestorDetailV
               </div>
               
               <div className="flex items-center gap-2 mb-4">
-                <span className="px-2.5 py-1 rounded-md bg-gray-50 dark:bg-gray-800/50 text-[11px] font-semibold text-gray-600 dark:text-gray-300 flex items-center gap-1.5 ring-1 ring-gray-900/5 dark:ring-white/10">
+                <span className="px-2.5 py-1 rounded-md bg-gray-50 dark:bg-gray-800/50 text-[11px] font-semibold text-gray-600 dark:text-gray-300 flex items-center gap-1.5 ">
                   {isCompany ? (
                     <><Building2 className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" /> Fonds / Entreprise</>
                   ) : (
@@ -127,20 +127,20 @@ export default function InvestorDetailView({ investor, onBack }: InvestorDetailV
           <div className="w-full md:w-2/3 flex flex-col gap-8 pt-8 md:pt-16">
             
             {/* Quick Metrics */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              <div className="bg-gray-50 dark:bg-[#151515] p-4 rounded-xl ring-1 ring-gray-900/5 dark:ring-white/5 flex flex-col justify-center">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 pt-4 pb-8 border-b border-gray-100 dark:border-gray-800">
+              <div className="bg-gray-50/80 dark:bg-gray-800/40 p-4 rounded-xl flex flex-col justify-center">
                 <span className="text-[11px] font-mono font-semibold uppercase tracking-wider text-gray-500 mb-1.5 flex items-center gap-1.5"><Euro className="w-3.5 h-3.5" /> Ticket Moy.</span>
                 <span className="text-lg font-bold text-gray-900 dark:text-white">{investor.avgTicket || investor.investmentRange}</span>
               </div>
-              <div className="bg-gray-50 dark:bg-[#151515] p-4 rounded-xl ring-1 ring-gray-900/5 dark:ring-white/5 flex flex-col justify-center">
+              <div className="bg-gray-50/80 dark:bg-gray-800/40 p-4 rounded-xl flex flex-col justify-center">
                 <span className="text-[11px] font-mono font-semibold uppercase tracking-wider text-gray-500 mb-1.5 flex items-center gap-1.5"><Target className="w-3.5 h-3.5" /> Déployé</span>
                 <span className="text-lg font-bold text-gray-900 dark:text-white">{investor.totalInvested || 'N/C'}</span>
               </div>
-              <div className="bg-gray-50 dark:bg-[#151515] p-4 rounded-xl ring-1 ring-gray-900/5 dark:ring-white/5 flex flex-col justify-center">
+              <div className="bg-gray-50/80 dark:bg-gray-800/40 p-4 rounded-xl flex flex-col justify-center">
                 <span className="text-[11px] font-mono font-semibold uppercase tracking-wider text-gray-500 mb-1.5 flex items-center gap-1.5"><Briefcase className="w-3.5 h-3.5" /> Portfolio</span>
                 <span className="text-lg font-bold text-gray-900 dark:text-white">{investor.portfolioCount || 0} Deals</span>
               </div>
-              <div className="bg-gray-50 dark:bg-[#151515] p-4 rounded-xl ring-1 ring-gray-900/5 dark:ring-white/5 flex flex-col justify-center">
+              <div className="bg-gray-50/80 dark:bg-gray-800/40 p-4 rounded-xl flex flex-col justify-center">
                 <span className="text-[11px] font-mono font-semibold uppercase tracking-wider text-gray-500 mb-1.5 flex items-center gap-1.5"><LayoutGrid className="w-3.5 h-3.5" /> Stades</span>
                 <div className="flex flex-wrap gap-1">
                   {(investor.stages || ['Seed']).map((s, i) => (
@@ -151,7 +151,7 @@ export default function InvestorDetailView({ investor, onBack }: InvestorDetailV
             </div>
 
             {/* About Section */}
-            <section className="bg-white dark:bg-[#151515] rounded-xl p-6 sm:p-8 shadow-sm ring-1 ring-gray-900/5 dark:ring-white/5">
+            <section className="pt-8 pb-8 border-b border-gray-100 dark:border-gray-800">
               <h2 className="font-display font-semibold text-xl text-gray-900 dark:text-white mb-4">À propos</h2>
               <p className="text-[14.5px] text-gray-600 dark:text-gray-400 leading-relaxed whitespace-pre-line">
                 {investor.about || investor.bio}
@@ -159,13 +159,16 @@ export default function InvestorDetailView({ investor, onBack }: InvestorDetailV
               
               <div className="mt-8 pt-6 border-t border-gray-200/50 dark:border-gray-800/50">
                 <h3 className="font-semibold text-[13.5px] text-gray-900 dark:text-white mb-3">Secteurs privilégiés</h3>
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap items-center gap-2 text-[13.5px]">
                   {investor.focus.map((sector, index) => (
                     <span 
                       key={index}
-                      className="px-3.5 py-1.5 rounded-lg bg-gray-50 dark:bg-gray-800/50 text-gray-700 dark:text-gray-300 text-[13px] font-medium ring-1 ring-gray-900/5 dark:ring-white/10"
+                      className="text-gray-700 dark:text-gray-300 font-medium flex items-center gap-2"
                     >
                       {sector}
+                      {index < investor.focus.length - 1 && (
+                        <span className="text-gray-300 dark:text-gray-700">|</span>
+                      )}
                     </span>
                   ))}
                 </div>
@@ -180,9 +183,9 @@ export default function InvestorDetailView({ investor, onBack }: InvestorDetailV
                     <Users className="w-5 h-5 text-gray-400" /> Équipe d'investissement
                   </h2>
                 </div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-0">
                   {investor.team.map((member, idx) => (
-                    <div key={idx} className="flex items-center gap-4 p-4 rounded-xl bg-white dark:bg-[#151515] shadow-sm ring-1 ring-gray-900/5 dark:ring-white/5 hover:shadow-md transition-shadow">
+                    <div key={idx} className="flex items-center gap-4 py-4 border-b border-gray-100 dark:border-gray-800/50 last:border-0 group">
                       <img src={member.avatarUrl} alt={member.name} className="w-12 h-12 rounded-full object-cover bg-gray-100 dark:bg-gray-800" />
                       <div>
                         <h4 className="font-semibold text-[14px] text-gray-900 dark:text-white">{member.name}</h4>
@@ -210,10 +213,10 @@ export default function InvestorDetailView({ investor, onBack }: InvestorDetailV
                     Voir les {investor.portfolioCount} investissements
                   </span>
                 </div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                   {investor.portfolio.map((startup, idx) => (
-                    <div key={idx} className="p-5 rounded-xl bg-white dark:bg-[#151515] shadow-sm ring-1 ring-gray-900/5 dark:ring-white/5 group hover:shadow-md transition-shadow flex flex-col h-full">
-                      <div className="w-12 h-12 rounded-lg bg-gray-50 dark:bg-gray-800 ring-1 ring-gray-900/5 dark:ring-white/10 overflow-hidden mb-4 p-0.5">
+                    <div key={idx} className="py-4 border-b border-gray-100 dark:border-gray-800/50 group flex flex-col h-full">
+                      <div className="w-12 h-12 rounded-lg bg-gray-50 dark:bg-gray-800/50 overflow-hidden mb-4 p-0.5">
                         <img src={startup.logoUrl} alt={startup.name} className="w-full h-full object-cover rounded-lg" />
                       </div>
                       <h4 className="font-bold text-[15px] text-gray-900 dark:text-white mb-1">{startup.name}</h4>
