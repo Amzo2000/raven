@@ -88,4 +88,4 @@ export interface Talent {
   };
 }
 
-export type ViewState = 'startups' | 'investors' | 'talents' | 'statistics';
+export type ViewState = 'startups' | 'investors' | 'talents' | 'statistics' | 'profile';

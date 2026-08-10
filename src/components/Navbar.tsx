@@ -93,7 +93,10 @@ export default function Navbar({ currentView, onViewChange }: NavbarProps) {
           <button className="w-10 h-10 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 flex items-center justify-center transition-colors text-gray-700 dark:text-gray-300">
             <Bell className="w-5 h-5" />
           </button>
-          <button className="w-8 h-8 rounded-full overflow-hidden border border-gray-200 dark:border-gray-700 ml-1 sm:ml-2 sm:hidden">
+          <button 
+            onClick={() => onViewChange('profile')}
+            className={`w-8 h-8 rounded-full overflow-hidden border ml-1 sm:ml-2 sm:hidden transition-colors ${currentView === 'profile' ? 'border-[#1DBF73] ring-2 ring-[#1DBF73]/20' : 'border-gray-200 dark:border-gray-700 hover:border-gray-300 dark:hover:border-gray-500'}`}
+          >
             <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=100" alt="Profile" className="w-full h-full object-cover" />
           </button>
         </div>

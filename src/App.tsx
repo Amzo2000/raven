@@ -10,6 +10,7 @@ import StartupsView from './components/views/StartupsView';
 import WorkplaceView from './components/views/WorkplaceView';
 import TalentsView from './components/views/TalentsView';
 import StatisticsView from './components/views/StatisticsView';
+import MyProfileView from './components/views/MyProfileView';
 import ProfileDetailView from './components/views/ProfileDetailView';
 import InvestorDetailView from './components/views/InvestorDetailView';
 import UpdatePopup from './components/UpdatePopup';
@@ -36,6 +37,8 @@ export default function App() {
         return <TalentsView />;
       case 'statistics':
         return <StatisticsView />;
+      case 'profile':
+        return <MyProfileView />;
       default:
         return <StartupsView onProfileClick={setSelectedProfile} onInvestorClick={setSelectedInvestor} />;
     }

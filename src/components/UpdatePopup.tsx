@@ -2,13 +2,15 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { X, Sparkles } from 'lucide-react';
 
-const CURRENT_UPDATE_ID = 'update-v1.16';
+const CURRENT_UPDATE_ID = 'update-v1.18';
 
 const UPDATE_POINTS = [
   "La page Investisseurs est devenue 'Workplace', un espace de travail centralisé.",
-  "Nouvelle page 'Statistiques Détaillées",
+  "Nouvelle page 'Statistiques Détaillées' (sans bordures de cartes) pour suivre vos métriques.",
   "Les profils d'investisseurs sont désormais cliquables directement depuis la page de détail d'une startup.",
-  "Ajout d'une navigation rapide vers les statistiques depuis le Workplace."
+  "Ajout d'une navigation rapide vers les statistiques depuis le Workplace.",
+  "Nouvelle page \"Mon Profil\" en pleine largeur, avec un design inspiré des réseaux sociaux modernes.",
+  "Page profil créée et fonctionnelle, d'autres améliorations d'organisation sont prévues pour les prochaines mises à jour."
 ];
 
 export default function UpdatePopup() {

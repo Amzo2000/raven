@@ -49,7 +49,10 @@ export default function Sidebar({ currentView, onViewChange }: SidebarProps) {
 
       {/* Bottom Profile */}
       <div className="mt-auto">
-        <button className="w-10 h-10 rounded-full overflow-hidden border border-gray-200 dark:border-gray-700">
+        <button 
+          onClick={() => onViewChange('profile')}
+          className={`w-10 h-10 rounded-full overflow-hidden border transition-colors ${currentView === 'profile' ? 'border-[#1DBF73] ring-2 ring-[#1DBF73]/20' : 'border-gray-200 dark:border-gray-700 hover:border-gray-300 dark:hover:border-gray-500'}`}
+        >
           <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=100" alt="Profile" className="w-full h-full object-cover" />
         </button>
       </div>
