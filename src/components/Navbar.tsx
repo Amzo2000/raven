@@ -111,7 +111,7 @@ export default function Navbar({ currentView, onViewChange }: NavbarProps) {
         </button>
         <button onClick={() => onViewChange('investors')} className={`flex flex-col items-center justify-center w-full py-2 ${currentView === 'investors' ? 'text-[#1DBF73]' : 'text-gray-500 dark:text-gray-400'}`}>
           <Briefcase className="w-5 h-5" />
-          <span className="text-[10px] mt-1 font-medium">Investisseurs</span>
+          <span className="text-[10px] mt-1 font-medium">Workplace</span>
         </button>
         <button onClick={() => onViewChange('talents')} className={`flex flex-col items-center justify-center w-full py-2 ${currentView === 'talents' ? 'text-[#1DBF73]' : 'text-gray-500 dark:text-gray-400'}`}>
           <Users className="w-5 h-5" />

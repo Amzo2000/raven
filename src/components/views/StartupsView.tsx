@@ -105,7 +105,7 @@ function StartupSection({ title, items, onSelect }: { title: string, items: Star
   );
 }
 
-export default function StartupsView({ onProfileClick }: { onProfileClick?: (profile: any) => void }) {
+export default function StartupsView({ onProfileClick, onInvestorClick }: { onProfileClick?: (profile: any) => void, onInvestorClick?: (investor: any) => void }) {
   const trendingStartups = startups.slice(0, 5);
   const recommendedStartups = startups.slice(5, 10);
   const popularStartups = startups.slice(2, 8); // Mixed
@@ -160,7 +160,7 @@ export default function StartupsView({ onProfileClick }: { onProfileClick?: (pro
   };
 
   if (selectedStartup) {
-    return <StartupDetailView startup={selectedStartup} onBack={handleBack} onProfileClick={onProfileClick} />;
+    return <StartupDetailView startup={selectedStartup} onBack={handleBack} onProfileClick={onProfileClick} onInvestorClick={onInvestorClick} />;
   }
 
   return (

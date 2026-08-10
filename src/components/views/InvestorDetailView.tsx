@@ -79,10 +79,6 @@ export default function InvestorDetailView({ investor, onBack }: InvestorDetailV
                 <p className="text-[14.5px] text-gray-600 dark:text-gray-400 font-medium mb-6">{investor.subtitle}</p>
               )}
 
-              <button className="w-full font-medium text-[13.5px] px-4 py-3 rounded-xl bg-[#3F6B4A] dark:bg-[#6FC97F] text-white dark:text-gray-900 hover:bg-[#2C4E35] dark:hover:bg-[#5CB56C] transition-all flex items-center justify-center gap-1.5 shadow-sm mb-8">
-                Proposer un dossier (Pitch)
-              </button>
-
               <div className="w-full space-y-4 pt-6 border-t border-gray-100 dark:border-gray-800">
                 {investor.location && (
                   <div className="flex items-start gap-3">

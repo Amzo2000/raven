@@ -2,14 +2,16 @@ import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { ArrowLeft, ExternalLink, Globe, MapPin, Search, Linkedin, Twitter, Users, Rocket, ArrowUpRight, LayoutDashboard, TrendingUp } from 'lucide-react';
 import { Startup } from '../../types';
+import { investors } from '../../data';
 
 interface StartupDetailViewProps {
   startup: Startup;
   onBack: () => void;
   onProfileClick?: (profile: any) => void;
+  onInvestorClick?: (investor: any) => void;
 }
 
-export default function StartupDetailView({ startup, onBack, onProfileClick }: StartupDetailViewProps) {
+export default function StartupDetailView({ startup, onBack, onProfileClick, onInvestorClick }: StartupDetailViewProps) {
   const [activeTab, setActiveTab] = useState<'apercu' | 'equipe' | 'investisseurs'>('apercu');
   const [activeFilter, setActiveFilter] = useState('all');
   const [composerTag, setComposerTag] = useState('produit');
@@ -644,28 +646,30 @@ export default function StartupDetailView({ startup, onBack, onProfileClick }: S
               <h2 className="font-display font-semibold text-[18px] tracking-tight">Investisseurs au capital (Temps Réel)</h2>
             </div>
             <div className="flex flex-col gap-3.5 mb-8">
-              {[
-                { name: 'Green Origin Capital', type: 'Fonds climat · Lead', amount: Math.floor(startup.raised * 0.55), avatar: 'GO' },
-                { name: 'Nova Angels', type: 'Business angels', amount: Math.floor(startup.raised * 0.20), avatar: 'NA' },
-                { name: 'Fonds Tech Régional', type: 'Fonds public régional', amount: Math.floor(startup.raised * 0.15), avatar: 'FT' },
-                { name: 'Marc Dubois', type: 'Business angel', amount: Math.floor(startup.raised * 0.07), avatar: 'MD' },
-                { name: 'Sarah El Amine', type: 'Business angel', amount: Math.floor(startup.raised * 0.03), avatar: 'SE' },
-              ].sort((a, b) => b.amount - a.amount).map((investor, idx) => (
-                <div key={idx} className="bg-white dark:bg-[#111111] border border-gray-200 dark:border-gray-800 rounded-xl p-4.5 text-[13.5px] flex items-center justify-between hover:border-[#3F6B4A] dark:hover:border-[#6FC97F] transition-colors group">
+              {investors.slice(0, 5).map((investor, idx) => (
+                <div 
+                  key={investor.id} 
+                  onClick={() => onInvestorClick && onInvestorClick(investor)}
+                  className={`bg-white dark:bg-[#111111] border border-gray-200 dark:border-gray-800 rounded-xl p-4.5 text-[13.5px] flex items-center justify-between hover:border-[#3F6B4A] dark:hover:border-[#6FC97F] transition-colors group ${onInvestorClick ? 'cursor-pointer' : ''}`}
+                >
                   <div className="flex items-center gap-4">
                     <div className="font-display font-bold text-gray-400 dark:text-gray-600 w-4 text-right">
                       {idx + 1}
                     </div>
                     <div className="w-10 h-10 rounded-full bg-[#DCE8DD] dark:bg-gray-800 text-[#2C4E35] dark:text-[#9BDBA8] flex items-center justify-center font-display font-bold text-[13px] overflow-hidden">
-                      {investor.avatar}
+                      {investor.avatarUrl ? (
+                         <img src={investor.avatarUrl} alt={investor.name} className="w-full h-full object-cover" />
+                      ) : (
+                         investor.name.split(' ').map(n => n[0]).join('').substring(0, 2).toUpperCase()
+                      )}
                     </div>
                     <div>
                       <div className="font-semibold text-[14.5px] mb-0.5 group-hover:text-[#3F6B4A] dark:group-hover:text-[#6FC97F] transition-colors">{investor.name}</div>
-                      <div className="font-mono text-[11px] text-gray-500 dark:text-gray-400 uppercase tracking-wider">{investor.type}</div>
+                      <div className="font-mono text-[11px] text-gray-500 dark:text-gray-400 uppercase tracking-wider">{investor.type === 'entreprise_fonds' ? 'Fonds' : 'Business Angel'}</div>
                     </div>
                   </div>
                   <div className="font-display font-bold text-[16px] text-[#3F6B4A] dark:text-[#6FC97F]">
-                    {investor.amount.toLocaleString()} MRU
+                    {investor.avgTicket || investor.investmentRange}
                   </div>
                 </div>
               ))}

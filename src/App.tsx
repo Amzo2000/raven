@@ -7,8 +7,9 @@ import { useState } from 'react';
 import Navbar from './components/Navbar';
 import Sidebar from './components/Sidebar';
 import StartupsView from './components/views/StartupsView';
-import InvestorsView from './components/views/InvestorsView';
+import WorkplaceView from './components/views/WorkplaceView';
 import TalentsView from './components/views/TalentsView';
+import StatisticsView from './components/views/StatisticsView';
 import ProfileDetailView from './components/views/ProfileDetailView';
 import InvestorDetailView from './components/views/InvestorDetailView';
 import UpdatePopup from './components/UpdatePopup';
@@ -28,13 +29,15 @@ export default function App() {
   const renderView = () => {
     switch (currentView) {
       case 'startups':
-        return <StartupsView onProfileClick={setSelectedProfile} />;
+        return <StartupsView onProfileClick={setSelectedProfile} onInvestorClick={setSelectedInvestor} />;
       case 'investors':
-        return <InvestorsView onInvestorClick={setSelectedInvestor} />;
+        return <WorkplaceView onInvestorClick={setSelectedInvestor} onTalentClick={setSelectedProfile} onProfileClick={setSelectedProfile} onViewChange={handleViewChange} />;
       case 'talents':
         return <TalentsView />;
+      case 'statistics':
+        return <StatisticsView />;
       default:
-        return <StartupsView onProfileClick={setSelectedProfile} />;
+        return <StartupsView onProfileClick={setSelectedProfile} onInvestorClick={setSelectedInvestor} />;
     }
   };
 

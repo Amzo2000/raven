@@ -122,8 +122,8 @@ export default function InvestorCard({ investor }: InvestorCardProps) {
         <span className="text-[12px] font-medium text-gray-500">
           {isCompany ? 'Fonds' : 'Business Angel'}
         </span>
-        <button className="text-[13px] font-medium text-white bg-[#3F6B4A] dark:bg-[#6FC97F] dark:text-gray-900 hover:bg-[#2C4E35] dark:hover:bg-[#5CB56C] transition-colors px-4 py-1.5 rounded-lg shadow-sm">
-          Contacter
+        <button className="text-[13px] font-medium text-[#3F6B4A] dark:text-[#6FC97F] hover:text-[#2C4E35] dark:hover:text-[#5CB56C] transition-colors">
+          Voir le profil &rarr;
         </button>
       </div>
     </motion.div>

@@ -34,7 +34,7 @@ export default function Sidebar({ currentView, onViewChange }: SidebarProps) {
         <button 
           onClick={() => onViewChange('investors')} 
           className={`p-3 rounded-xl transition-colors flex items-center justify-center ${currentView === 'investors' ? 'bg-gray-100 dark:bg-gray-800 text-[#1DBF73]' : 'text-gray-400 dark:text-gray-500 hover:text-gray-900 dark:hover:text-white hover:bg-gray-50 dark:hover:bg-gray-800'}`}
-          title="Investisseurs"
+          title="Workplace"
         >
           <Briefcase className="w-6 h-6" />
         </button>

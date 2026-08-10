@@ -2,15 +2,13 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { X, Sparkles } from 'lucide-react';
 
-const CURRENT_UPDATE_ID = 'update-v1.15';
+const CURRENT_UPDATE_ID = 'update-v1.16';
+
 const UPDATE_POINTS = [
-  "Nouvelle page de profil détaillée, complète et riche pour les investisseurs",
-  "Affichage des informations clés : tickets moyens, capital déployé, stades d'investissement, secteurs",
-  "Ajout de la section 'À propos' détaillée, de l'équipe d'investissement (pour les fonds) et du portfolio",
-  "Design professionnel et moderne différenciant subtilement les Business Angels des Fonds",
-  "Alignement du format des cartes investisseurs sur la structure demandée (JR, ✓, metrics, etc)",
-  "Différenciation de la forme des avatars : Rond pour les particuliers, carré arrondi pour les fonds",
-  "Ajout des nouvelles métriques clés pour chaque investisseur"
+  "La page Investisseurs est devenue 'Workplace', un espace de travail centralisé.",
+  "Nouvelle page 'Statistiques Détaillées",
+  "Les profils d'investisseurs sont désormais cliquables directement depuis la page de détail d'une startup.",
+  "Ajout d'une navigation rapide vers les statistiques depuis le Workplace."
 ];
 
 export default function UpdatePopup() {
